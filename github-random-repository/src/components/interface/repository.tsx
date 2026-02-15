@@ -13,7 +13,7 @@ export interface IRepository {
 export default function RepositoryItem({ item }: { item: IRepository }) {
   return (
     <>
-      <div className="border rounded-2xl p-4">
+      <div className="border rounded-lg p-4">
         <p className="text-lg font-bold">{item.full_name}</p>
         <p>{item.description}</p>
         <div className="flex flex-row gap-2 text-sm mt-2 mb-2">

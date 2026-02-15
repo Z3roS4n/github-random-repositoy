@@ -9,6 +9,7 @@ import { Eye, Star } from "lucide-react";
 import Repository, { type IRepository } from "./components/interface/repository";
 import type { Language } from "./components/interface/language-selector";
 import LanguageSelector from "./components/interface/language-selector";
+import { Skeleton } from "./components/ui/skeleton";
 
 export interface SearchResponse {
   total_count: number;
@@ -30,8 +31,8 @@ export function App() {
   const repository = useMutation<SearchResponse>({
     mutationKey: ["repository", selectedLanguage],
     mutationFn: async () => {
-      const query = selectedLanguage ? `language:${selectedLanguage}` : "2";
-      const res = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}`, { 
+      const query = selectedLanguage ? `language:${selectedLanguage}` : `${Math.floor(Math.random() * 1000)}`;
+      const res = await fetch(`https://api.github.com/search/repositories?per_page=100&page=${Math.floor(Math.random() * 10) + 1}&q=${encodeURIComponent(query)}`, { 
         headers: { 
           'X-GitHub-Api-Version': '2022-11-28', 
           'Accept': 'application/vnd.github+json' 
@@ -60,6 +61,7 @@ export function App() {
           <div className="flex flex-col gap-2">
             <LanguageSelector languages={languages || []} selectedLanguage={setSelectedLanguage}></LanguageSelector>
             <div className="flex flex-col">
+              { repository.isPending && <Skeleton className="h-30 w-full" /> }
               { selectRandomRepository ? (
                 <Repository item={selectRandomRepository}></Repository>
               ) : (
