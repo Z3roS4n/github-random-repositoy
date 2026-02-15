@@ -8,7 +8,7 @@
 
 Discover a random GitHub project in one click.
 
-Website: https://github-random-repositoy.vercel.app/
+Live Demo: https://roadmap.sh/projects/github-random-repo
 
 This app lets you pick a programming language and fetches random repositories from the GitHub Search API, so you can quickly explore codebases, ideas, and trends.
 
@@ -97,3 +97,4 @@ github-random-repository/
 ## License
 
 MIT-style usage under the terms of [LICENSE](LICENSE).
+
