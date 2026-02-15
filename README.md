@@ -8,7 +8,7 @@
 
 Discover a random GitHub project in one click.
 
-Website: https://msworks.it
+Website: https://github-random-repositoy.vercel.app/
 
 This app lets you pick a programming language and fetches random repositories from the GitHub Search API, so you can quickly explore codebases, ideas, and trends.
 
